@@ -67,7 +67,7 @@ func New(data map[Query]Result) (Matrix, error) {
 		m.compressed = append(m.compressed, u)
 	}
 
-	// NOTE check uniq maybe?..
+	// NOTE check compr uniq maybe?..
 
 	sortU(m.compressed)
 
@@ -75,6 +75,7 @@ func New(data map[Query]Result) (Matrix, error) {
 }
 
 func NewFromBytes(b []byte) (Matrix, error) {
+	// first two numbers are length of categories and locations, then locations and categories, then compressed data
 	return nil, nil
 }
 

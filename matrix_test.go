@@ -17,7 +17,7 @@ func TestQueryConcat(t *testing.T) {
 func TestCompleteMatrix(t *testing.T) {
 	var N int
 	if testing.Short() {
-		N = 50
+		N = 5000
 	} else {
 		N = categoriesAmount * locationsAmount
 	}
@@ -30,13 +30,6 @@ func TestCompleteMatrix(t *testing.T) {
 	gen := newGen(data)
 	subtest := func(tt *testing.T) {
 		q, r := <-gen.q, <-gen.r
-
-		// if err := querySanityCheck(q); err != nil {
-		// 	tt.Errorf("unexpected error during sanity check: %v", err)
-		// }
-		// if err := resultSanityCheck(r); err != nil {
-		// 	tt.Errorf("unexpected error during sanity check: %v", err)
-		// }
 
 		res, ok := quer.Do(q)
 		if !ok {
